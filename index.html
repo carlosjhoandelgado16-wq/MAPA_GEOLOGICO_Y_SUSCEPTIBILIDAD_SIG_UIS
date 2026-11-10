@@ -39,10 +39,10 @@
         <script src="js/labels.js"></script>
         <script src="js/leaflet.photon.js"></script>
         <script src="js/leaflet-measure.js"></script>
-        <script src="data/Datos_estacion_1.js"></script>
-        <script src="data/UNIDADES_GEO_3.js"></script>
-        <script src="data/datosestacion136_4.js"></script>
-        <script src="data/fallas136_5.js"></script>
+        <script src="data/UNIDADES_GEO_4.js"></script>
+        <script src="data/136PLANCHA_5.js"></script>
+        <script src="data/datosestacion136_6.js"></script>
+        <script src="data/fallas136_7.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -51,7 +51,7 @@
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[6.424517133381725,-72.99304905984238],[6.809539660664023,-72.47717896812732]]);
+        }).fitBounds([[6.391745409924435,-73.049446194615],[6.776712980975577,-72.53361431520196]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/qgis2web/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -176,133 +176,45 @@
             map.setMaxBounds(map.getBounds());
             map.setMinZoom(map.getZoom());
         }
-        map.createPane('pane_susceptibilidadmovmasa_co02_geo03_pend035_preci015_0');
-        map.getPane('pane_susceptibilidadmovmasa_co02_geo03_pend035_preci015_0').style.zIndex = 400;
-        var img_susceptibilidadmovmasa_co02_geo03_pend035_preci015_0 = 'data/susceptibilidadmovmasa_co02_geo03_pend035_preci015_0.png';
-        var img_bounds_susceptibilidadmovmasa_co02_geo03_pend035_preci015_0 = [[6.107268439164605,-73.15408080226464],[6.905306813856702,-71.85884536021118]];
-        var layer_susceptibilidadmovmasa_co02_geo03_pend035_preci015_0 = new L.imageOverlay(img_susceptibilidadmovmasa_co02_geo03_pend035_preci015_0,
-                                              img_bounds_susceptibilidadmovmasa_co02_geo03_pend035_preci015_0,
-                                              {pane: 'pane_susceptibilidadmovmasa_co02_geo03_pend035_preci015_0'});
-        bounds_group.addLayer(layer_susceptibilidadmovmasa_co02_geo03_pend035_preci015_0);
-        map.addLayer(layer_susceptibilidadmovmasa_co02_geo03_pend035_preci015_0);
-        function pop_Datos_estacion_1(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(String(feature.properties['OBJECTID']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['FID_UC'] !== null ? autolinker.link(String(feature.properties['FID_UC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Shape_Leng'] !== null ? autolinker.link(String(feature.properties['Shape_Leng']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['SimboloUC'] !== null ? autolinker.link(String(feature.properties['SimboloUC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Descripcio'] !== null ? autolinker.link(String(feature.properties['Descripcio']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Edad'] !== null ? autolinker.link(String(feature.properties['Edad']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['UGIntegrad'] !== null ? autolinker.link(String(feature.properties['UGIntegrad']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Comentario'] !== null ? autolinker.link(String(feature.properties['Comentario']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['FID_AreasD'] !== null ? autolinker.link(String(feature.properties['FID_AreasD']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['PLA_NUMR_P'] !== null ? autolinker.link(String(feature.properties['PLA_NUMR_P']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['RULEID'] !== null ? autolinker.link(String(feature.properties['RULEID']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Shape_Le_1'] !== null ? autolinker.link(String(feature.properties['Shape_Le_1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Shape_Ar_1'] !== null ? autolinker.link(String(feature.properties['Shape_Ar_1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ORIG_FID'] !== null ? autolinker.link(String(feature.properties['ORIG_FID']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Azimuth'] !== null ? autolinker.link(String(feature.properties['Azimuth']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Buzamiento'] !== null ? autolinker.link(String(feature.properties['Buzamiento']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_Datos_estacion_1_0() {
-            return {
-                pane: 'pane_Datos_estacion_1',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(145,82,45,1.0)',
-                interactive: true,
-            }
-        }
-        map.createPane('pane_Datos_estacion_1');
-        map.getPane('pane_Datos_estacion_1').style.zIndex = 401;
-        map.getPane('pane_Datos_estacion_1').style['mix-blend-mode'] = 'normal';
-        var layer_Datos_estacion_1 = new L.geoJson(json_Datos_estacion_1, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_Datos_estacion_1',
-            layerName: 'layer_Datos_estacion_1',
-            pane: 'pane_Datos_estacion_1',
-            onEachFeature: pop_Datos_estacion_1,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.circleMarker(latlng, style_Datos_estacion_1_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_Datos_estacion_1);
-        map.addLayer(layer_Datos_estacion_1);
-        map.createPane('pane_WorldImagery_2');
-        map.getPane('pane_WorldImagery_2').style.zIndex = 402;
-        var layer_WorldImagery_2 = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-            pane: 'pane_WorldImagery_2',
+        map.createPane('pane_WorldImagery_0');
+        map.getPane('pane_WorldImagery_0').style.zIndex = 400;
+        var layer_WorldImagery_0 = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            pane: 'pane_WorldImagery_0',
             opacity: 1.0,
             attribution: '',
             minZoom: 1,
             maxZoom: 28,
         });
-        layer_WorldImagery_2;
-        map.addLayer(layer_WorldImagery_2);
-        function pop_UNIDADES_GEO_3(feature, layer) {
+        layer_WorldImagery_0;
+        map.addLayer(layer_WorldImagery_0);
+        map.createPane('pane_susceptibilidadmovmasa_co02_geo03_pend035_preci015_1');
+        map.getPane('pane_susceptibilidadmovmasa_co02_geo03_pend035_preci015_1').style.zIndex = 401;
+        var img_susceptibilidadmovmasa_co02_geo03_pend035_preci015_1 = 'data/susceptibilidadmovmasa_co02_geo03_pend035_preci015_1.png';
+        var img_bounds_susceptibilidadmovmasa_co02_geo03_pend035_preci015_1 = [[6.107268439164605,-73.15408080226464],[6.905306813856702,-71.85884536021118]];
+        var layer_susceptibilidadmovmasa_co02_geo03_pend035_preci015_1 = new L.imageOverlay(img_susceptibilidadmovmasa_co02_geo03_pend035_preci015_1,
+                                              img_bounds_susceptibilidadmovmasa_co02_geo03_pend035_preci015_1,
+                                              {pane: 'pane_susceptibilidadmovmasa_co02_geo03_pend035_preci015_1'});
+        bounds_group.addLayer(layer_susceptibilidadmovmasa_co02_geo03_pend035_preci015_1);
+        map.addLayer(layer_susceptibilidadmovmasa_co02_geo03_pend035_preci015_1);
+        map.createPane('pane_SOMBRAS_2');
+        map.getPane('pane_SOMBRAS_2').style.zIndex = 402;
+        var img_SOMBRAS_2 = 'data/SOMBRAS_2.png';
+        var img_bounds_SOMBRAS_2 = [[6.402624873410107,-72.99264077746317],[6.7650619710962685,-72.58521847939332]];
+        var layer_SOMBRAS_2 = new L.imageOverlay(img_SOMBRAS_2,
+                                              img_bounds_SOMBRAS_2,
+                                              {pane: 'pane_SOMBRAS_2'});
+        bounds_group.addLayer(layer_SOMBRAS_2);
+        map.addLayer(layer_SOMBRAS_2);
+        map.createPane('pane_Pendiente_3');
+        map.getPane('pane_Pendiente_3').style.zIndex = 403;
+        var img_Pendiente_3 = 'data/Pendiente_3.png';
+        var img_bounds_Pendiente_3 = [[6.402624873410107,-72.99264077746317],[6.7650619710962685,-72.58521847939332]];
+        var layer_Pendiente_3 = new L.imageOverlay(img_Pendiente_3,
+                                              img_bounds_Pendiente_3,
+                                              {pane: 'pane_Pendiente_3'});
+        bounds_group.addLayer(layer_Pendiente_3);
+        map.addLayer(layer_Pendiente_3);
+        function pop_UNIDADES_GEO_4(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -328,11 +240,11 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_UNIDADES_GEO_3_0(feature) {
+        function style_UNIDADES_GEO_4_0(feature) {
             switch(String(feature.properties['SIMBOLOGIA'])) {
                 case 'Ksgat':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -347,7 +259,7 @@
                     break;
                 case 'Ktg':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -362,7 +274,7 @@
                     break;
                 case 'Ksgp':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -377,7 +289,7 @@
                     break;
                 case 'Ksl':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -392,7 +304,7 @@
                     break;
                 case 'Qc':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -407,7 +319,7 @@
                     break;
                 case 'Ksc':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -422,7 +334,7 @@
                     break;
                 case 'Kia':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -437,7 +349,7 @@
                     break;
                 case 'Kita':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -452,7 +364,7 @@
                     break;
                 case 'Kitm':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -467,7 +379,7 @@
                     break;
                 case 'Dfm':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -482,7 +394,7 @@
                     break;
                 case 'JTRcm':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -497,7 +409,7 @@
                     break;
                 case 'Klm':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -512,7 +424,7 @@
                     break;
                 case 'JTRgp':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -527,7 +439,7 @@
                     break;
                 case 'PDs':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -542,7 +454,7 @@
                     break;
                 case 'Qtf':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -557,7 +469,7 @@
                     break;
                 case 'PDb':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -572,7 +484,7 @@
                     break;
                 case 'Qal':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -587,7 +499,7 @@
                     break;
                 case 'Df':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -602,7 +514,7 @@
                     break;
                 case 'Dft':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -617,7 +529,7 @@
                     break;
                 case 'Pcrn':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -632,7 +544,7 @@
                     break;
                 case 'PDo':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -647,7 +559,7 @@
                     break;
                 case 'Tpars':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -662,7 +574,7 @@
                     break;
                 case 'JTRcs':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -677,7 +589,7 @@
                     break;
                 case 'Jg':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -692,7 +604,7 @@
                     break;
                 case 'Kirn':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -707,7 +619,7 @@
                     break;
                 case 'Kscm':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -722,7 +634,7 @@
                     break;
                 case 'Tec':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -737,7 +649,7 @@
                     break;
                 case 'Tem':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -752,7 +664,7 @@
                     break;
                 case 'Tpb':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -767,7 +679,7 @@
                     break;
                 case 'Tplc':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -782,11 +694,11 @@
                     break;
             }
         }
-        function style_UNIDADES_GEO_3_1(feature) {
+        function style_UNIDADES_GEO_4_1(feature) {
             switch(String(feature.properties['SIMBOLOGIA'])) {
                 case 'Ksgat':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -801,7 +713,7 @@
                     break;
                 case 'Ktg':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -816,7 +728,7 @@
                     break;
                 case 'Ksgp':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -831,7 +743,7 @@
                     break;
                 case 'Ksl':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -846,7 +758,7 @@
                     break;
                 case 'Qc':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -861,7 +773,7 @@
                     break;
                 case 'Ksc':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -876,7 +788,7 @@
                     break;
                 case 'Kia':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -891,7 +803,7 @@
                     break;
                 case 'Kita':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -906,7 +818,7 @@
                     break;
                 case 'Kitm':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -921,7 +833,7 @@
                     break;
                 case 'Dfm':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -936,7 +848,7 @@
                     break;
                 case 'JTRcm':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -951,7 +863,7 @@
                     break;
                 case 'Klm':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -966,7 +878,7 @@
                     break;
                 case 'JTRgp':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -981,7 +893,7 @@
                     break;
                 case 'PDs':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -996,7 +908,7 @@
                     break;
                 case 'Qtf':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -1011,7 +923,7 @@
                     break;
                 case 'PDb':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -1026,7 +938,7 @@
                     break;
                 case 'Qal':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -1041,7 +953,7 @@
                     break;
                 case 'Df':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -1056,7 +968,7 @@
                     break;
                 case 'Dft':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -1071,7 +983,7 @@
                     break;
                 case 'Pcrn':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -1086,7 +998,7 @@
                     break;
                 case 'PDo':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -1101,7 +1013,7 @@
                     break;
                 case 'Tpars':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -1116,7 +1028,7 @@
                     break;
                 case 'JTRcs':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -1131,7 +1043,7 @@
                     break;
                 case 'Jg':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -1146,7 +1058,7 @@
                     break;
                 case 'Kirn':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -1161,7 +1073,7 @@
                     break;
                 case 'Kscm':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -1176,7 +1088,7 @@
                     break;
                 case 'Tec':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -1191,7 +1103,7 @@
                     break;
                 case 'Tem':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -1206,7 +1118,7 @@
                     break;
                 case 'Tpb':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -1221,7 +1133,7 @@
                     break;
                 case 'Tplc':
                     return {
-                pane: 'pane_UNIDADES_GEO_3',
+                pane: 'pane_UNIDADES_GEO_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.7)',
                 dashArray: '',
@@ -1236,21 +1148,82 @@
                     break;
             }
         }
-        map.createPane('pane_UNIDADES_GEO_3');
-        map.getPane('pane_UNIDADES_GEO_3').style.zIndex = 403;
-        map.getPane('pane_UNIDADES_GEO_3').style['mix-blend-mode'] = 'normal';
-        var layer_UNIDADES_GEO_3 = new L.geoJson.multiStyle(json_UNIDADES_GEO_3, {
+        map.createPane('pane_UNIDADES_GEO_4');
+        map.getPane('pane_UNIDADES_GEO_4').style.zIndex = 404;
+        map.getPane('pane_UNIDADES_GEO_4').style['mix-blend-mode'] = 'normal';
+        var layer_UNIDADES_GEO_4 = new L.geoJson.multiStyle(json_UNIDADES_GEO_4, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_UNIDADES_GEO_3',
-            layerName: 'layer_UNIDADES_GEO_3',
-            pane: 'pane_UNIDADES_GEO_3',
-            onEachFeature: pop_UNIDADES_GEO_3,
-            styles: [style_UNIDADES_GEO_3_0,style_UNIDADES_GEO_3_1,]
+            dataVar: 'json_UNIDADES_GEO_4',
+            layerName: 'layer_UNIDADES_GEO_4',
+            pane: 'pane_UNIDADES_GEO_4',
+            onEachFeature: pop_UNIDADES_GEO_4,
+            styles: [style_UNIDADES_GEO_4_0,style_UNIDADES_GEO_4_1,]
         });
-        bounds_group.addLayer(layer_UNIDADES_GEO_3);
-        map.addLayer(layer_UNIDADES_GEO_3);
-        function pop_datosestacion136_4(feature, layer) {
+        bounds_group.addLayer(layer_UNIDADES_GEO_4);
+        map.addLayer(layer_UNIDADES_GEO_4);
+        function pop_136PLANCHA_5(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PLA_NUMR_P'] !== null ? autolinker.link(String(feature.properties['PLA_NUMR_P']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['RULEID'] !== null ? autolinker.link(String(feature.properties['RULEID']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Shape_Leng'] !== null ? autolinker.link(String(feature.properties['Shape_Leng']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Shape_Area'] !== null ? autolinker.link(String(feature.properties['Shape_Area']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_136PLANCHA_5_0() {
+            return {
+                pane: 'pane_136PLANCHA_5',
+                opacity: 1,
+                color: 'rgba(228,26,28,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 4.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_136PLANCHA_5');
+        map.getPane('pane_136PLANCHA_5').style.zIndex = 405;
+        map.getPane('pane_136PLANCHA_5').style['mix-blend-mode'] = 'normal';
+        var layer_136PLANCHA_5 = new L.geoJson(json_136PLANCHA_5, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_136PLANCHA_5',
+            layerName: 'layer_136PLANCHA_5',
+            pane: 'pane_136PLANCHA_5',
+            onEachFeature: pop_136PLANCHA_5,
+            style: style_136PLANCHA_5_0,
+        });
+        bounds_group.addLayer(layer_136PLANCHA_5);
+        map.addLayer(layer_136PLANCHA_5);
+        function pop_datosestacion136_6(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -1320,9 +1293,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_datosestacion136_4_0() {
+        function style_datosestacion136_6_0() {
             return {
-                pane: 'pane_datosestacion136_4',
+                pane: 'pane_datosestacion136_6',
                 radius: 2.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -1336,9 +1309,9 @@
                 interactive: false,
             }
         }
-        function style_datosestacion136_4_1() {
+        function style_datosestacion136_6_1() {
             return {
-                pane: 'pane_datosestacion136_4',
+                pane: 'pane_datosestacion136_6',
                 radius: 8.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -1352,33 +1325,33 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_datosestacion136_4');
-        map.getPane('pane_datosestacion136_4').style.zIndex = 404;
-        map.getPane('pane_datosestacion136_4').style['mix-blend-mode'] = 'normal';
-        var layer_datosestacion136_4 = new L.geoJson.multiStyle(json_datosestacion136_4, {
+        map.createPane('pane_datosestacion136_6');
+        map.getPane('pane_datosestacion136_6').style.zIndex = 406;
+        map.getPane('pane_datosestacion136_6').style['mix-blend-mode'] = 'normal';
+        var layer_datosestacion136_6 = new L.geoJson.multiStyle(json_datosestacion136_6, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_datosestacion136_4',
-            layerName: 'layer_datosestacion136_4',
-            pane: 'pane_datosestacion136_4',
-            onEachFeature: pop_datosestacion136_4,
+            dataVar: 'json_datosestacion136_6',
+            layerName: 'layer_datosestacion136_6',
+            pane: 'pane_datosestacion136_6',
+            onEachFeature: pop_datosestacion136_6,
             pointToLayers: [function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.shapeMarker(latlng, style_datosestacion136_4_0(feature));
+                return L.shapeMarker(latlng, style_datosestacion136_6_0(feature));
             },function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.shapeMarker(latlng, style_datosestacion136_4_1(feature));
+                return L.shapeMarker(latlng, style_datosestacion136_6_1(feature));
             },
         ]});
-        bounds_group.addLayer(layer_datosestacion136_4);
-        map.addLayer(layer_datosestacion136_4);
-        function pop_fallas136_5(feature, layer) {
+        bounds_group.addLayer(layer_datosestacion136_6);
+        map.addLayer(layer_datosestacion136_6);
+        function pop_fallas136_7(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -1409,11 +1382,11 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_fallas136_5_0(feature) {
+        function style_fallas136_7_0(feature) {
             switch(String(feature.properties['Tipo'])) {
                 case 'Falla':
                     return {
-                pane: 'pane_fallas136_5',
+                pane: 'pane_fallas136_7',
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
                 dashArray: '',
@@ -1426,7 +1399,7 @@
                     break;
                 case 'Falla cubierta':
                     return {
-                pane: 'pane_fallas136_5',
+                pane: 'pane_fallas136_7',
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
                 dashArray: '4.0,2.0',
@@ -1439,13 +1412,13 @@
                     break;
                 case '[\'Falla de rumbo sinestral\', \'Falla de rumbo sinestral cubierta\']':
                     return {
-                pane: 'pane_fallas136_5',
+                pane: 'pane_fallas136_7',
                 interactive: false,
             }
                     break;
                 case '[\'Falla inversa o de cabalgamiento\', \'Falla inversa o de cabalgamiento cubierta\']':
                     return {
-                pane: 'pane_fallas136_5',
+                pane: 'pane_fallas136_7',
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
                 dashArray: '',
@@ -1458,7 +1431,7 @@
                     break;
                 default:
                     return {
-                pane: 'pane_fallas136_5',
+                pane: 'pane_fallas136_7',
                 opacity: 1,
                 color: 'rgba(17,200,133,1.0)',
                 dashArray: '',
@@ -1471,27 +1444,29 @@
                     break;
             }
         }
-        map.createPane('pane_fallas136_5');
-        map.getPane('pane_fallas136_5').style.zIndex = 405;
-        map.getPane('pane_fallas136_5').style['mix-blend-mode'] = 'normal';
-        var layer_fallas136_5 = new L.geoJson(json_fallas136_5, {
+        map.createPane('pane_fallas136_7');
+        map.getPane('pane_fallas136_7').style.zIndex = 407;
+        map.getPane('pane_fallas136_7').style['mix-blend-mode'] = 'normal';
+        var layer_fallas136_7 = new L.geoJson(json_fallas136_7, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_fallas136_5',
-            layerName: 'layer_fallas136_5',
-            pane: 'pane_fallas136_5',
-            onEachFeature: pop_fallas136_5,
-            style: style_fallas136_5_0,
+            dataVar: 'json_fallas136_7',
+            layerName: 'layer_fallas136_7',
+            pane: 'pane_fallas136_7',
+            onEachFeature: pop_fallas136_7,
+            style: style_fallas136_7_0,
         });
-        bounds_group.addLayer(layer_fallas136_5);
-        map.addLayer(layer_fallas136_5);
+        bounds_group.addLayer(layer_fallas136_7);
+        map.addLayer(layer_fallas136_7);
         var overlaysTree = [
-            {label: 'fallas136<br /><table><tr><td style="text-align: center;"><img src="legend/fallas136_5_Falla0.png" /></td><td>Falla</td></tr><tr><td style="text-align: center;"><img src="legend/fallas136_5_Fallacubierta1.png" /></td><td>Falla cubierta</td></tr><tr><td style="text-align: center;"><img src="legend/fallas136_5_Falladerumbosinestral2.png" /></td><td>Falla de rumbo sinestral</td></tr><tr><td style="text-align: center;"><img src="legend/fallas136_5_Fallainversaodecabalgamiento3.png" /></td><td>Falla inversa o de cabalgamiento</td></tr><tr><td style="text-align: center;"><img src="legend/fallas136_5_4.png" /></td><td></td></tr></table>', layer: layer_fallas136_5},
-            {label: '<img src="legend/datosestacion136_4.png" /> datosestacion136', layer: layer_datosestacion136_4},
-            {label: 'UNIDADES_GEO<br /><table><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_3_Ksgat0.png" /></td><td>Ksgat</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_3_Ktg1.png" /></td><td>Ktg</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_3_Ksgp2.png" /></td><td>Ksgp</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_3_Ksl3.png" /></td><td>Ksl</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_3_Qc4.png" /></td><td>Qc</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_3_Ksc5.png" /></td><td>Ksc</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_3_Kia6.png" /></td><td>Kia</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_3_Kita7.png" /></td><td>Kita</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_3_Kitm8.png" /></td><td>Kitm</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_3_Dfm9.png" /></td><td>Dfm</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_3_JTRcm10.png" /></td><td>JTRcm</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_3_Klm11.png" /></td><td>Klm</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_3_JTRgp12.png" /></td><td>JTRgp</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_3_PDs13.png" /></td><td>PDs</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_3_Qtf14.png" /></td><td>Qtf</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_3_PDb15.png" /></td><td>PDb</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_3_Qal16.png" /></td><td>Qal</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_3_Df17.png" /></td><td>Df</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_3_Dft18.png" /></td><td>Dft</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_3_Pcrn19.png" /></td><td>Pcrn</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_3_PDo20.png" /></td><td>PDo</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_3_Tpars21.png" /></td><td>Tpars</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_3_JTRcs22.png" /></td><td>JTRcs</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_3_Jg23.png" /></td><td>Jg</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_3_Kirn24.png" /></td><td>Kirn</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_3_Kscm25.png" /></td><td>Kscm</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_3_Tec26.png" /></td><td>Tec</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_3_Tem27.png" /></td><td>Tem</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_3_Tpb28.png" /></td><td>Tpb</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_3_Tplc29.png" /></td><td>Tplc</td></tr></table>', layer: layer_UNIDADES_GEO_3},
-            {label: "World Imagery", layer: layer_WorldImagery_2},
-            {label: '<img src="legend/Datos_estacion_1.png" /> Datos_estacion', layer: layer_Datos_estacion_1},
-            {label: "susceptibilidadmovmasa_co02_geo03_pend035_preci015", layer: layer_susceptibilidadmovmasa_co02_geo03_pend035_preci015_0},]
+            {label: 'fallas136<br /><table><tr><td style="text-align: center;"><img src="legend/fallas136_7_Falla0.png" /></td><td>Falla</td></tr><tr><td style="text-align: center;"><img src="legend/fallas136_7_Fallacubierta1.png" /></td><td>Falla cubierta</td></tr><tr><td style="text-align: center;"><img src="legend/fallas136_7_Falladerumbosinestral2.png" /></td><td>Falla de rumbo sinestral</td></tr><tr><td style="text-align: center;"><img src="legend/fallas136_7_Fallainversaodecabalgamiento3.png" /></td><td>Falla inversa o de cabalgamiento</td></tr><tr><td style="text-align: center;"><img src="legend/fallas136_7_4.png" /></td><td></td></tr></table>', layer: layer_fallas136_7},
+            {label: '<img src="legend/datosestacion136_6.png" /> datosestacion136', layer: layer_datosestacion136_6},
+            {label: '<img src="legend/136PLANCHA_5.png" /> 136PLANCHA', layer: layer_136PLANCHA_5},
+            {label: 'UNIDADES_GEO<br /><table><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_4_Ksgat0.png" /></td><td>Ksgat</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_4_Ktg1.png" /></td><td>Ktg</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_4_Ksgp2.png" /></td><td>Ksgp</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_4_Ksl3.png" /></td><td>Ksl</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_4_Qc4.png" /></td><td>Qc</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_4_Ksc5.png" /></td><td>Ksc</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_4_Kia6.png" /></td><td>Kia</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_4_Kita7.png" /></td><td>Kita</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_4_Kitm8.png" /></td><td>Kitm</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_4_Dfm9.png" /></td><td>Dfm</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_4_JTRcm10.png" /></td><td>JTRcm</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_4_Klm11.png" /></td><td>Klm</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_4_JTRgp12.png" /></td><td>JTRgp</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_4_PDs13.png" /></td><td>PDs</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_4_Qtf14.png" /></td><td>Qtf</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_4_PDb15.png" /></td><td>PDb</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_4_Qal16.png" /></td><td>Qal</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_4_Df17.png" /></td><td>Df</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_4_Dft18.png" /></td><td>Dft</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_4_Pcrn19.png" /></td><td>Pcrn</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_4_PDo20.png" /></td><td>PDo</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_4_Tpars21.png" /></td><td>Tpars</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_4_JTRcs22.png" /></td><td>JTRcs</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_4_Jg23.png" /></td><td>Jg</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_4_Kirn24.png" /></td><td>Kirn</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_4_Kscm25.png" /></td><td>Kscm</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_4_Tec26.png" /></td><td>Tec</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_4_Tem27.png" /></td><td>Tem</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_4_Tpb28.png" /></td><td>Tpb</td></tr><tr><td style="text-align: center;"><img src="legend/UNIDADES_GEO_4_Tplc29.png" /></td><td>Tplc</td></tr></table>', layer: layer_UNIDADES_GEO_4},
+            {label: "Pendiente ", layer: layer_Pendiente_3},
+            {label: "SOMBRAS", layer: layer_SOMBRAS_2},
+            {label: "susceptibilidadmovmasa_co02_geo03_pend035_preci015", layer: layer_susceptibilidadmovmasa_co02_geo03_pend035_preci015_1},
+            {label: "World Imagery", layer: layer_WorldImagery_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
             //selectorBack: false,
@@ -1504,12 +1479,12 @@
         lay.addTo(map);
         setBounds();
         var i = 0;
-        layer_datosestacion136_4.eachLayer(function(layer) {
+        layer_datosestacion136_6.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Buzamiento'] !== null?String('<div style="color: #323232; font-size: 10pt; font-weight: bold; font-family: \'Arial\', sans-serif;">' + layer.feature.properties['Buzamiento']).replace(/\\n/g, '<br>') + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_datosestacion136_4'});
+            layer.bindTooltip((layer.feature.properties['Buzamiento'] !== null?String('<div style="color: #323232; font-size: 10pt; font-weight: bold; font-family: \'Arial\', sans-serif;">' + layer.feature.properties['Buzamiento']).replace(/\\n/g, '<br>') + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_datosestacion136_6'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -1521,15 +1496,15 @@
                 return this._bounds;
             }
         });
-        resetLabels([layer_UNIDADES_GEO_3,layer_datosestacion136_4]);
+        resetLabels([layer_UNIDADES_GEO_4,layer_datosestacion136_6]);
         map.on("zoomend", function(){
-            resetLabels([layer_UNIDADES_GEO_3,layer_datosestacion136_4]);
+            resetLabels([layer_UNIDADES_GEO_4,layer_datosestacion136_6]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_UNIDADES_GEO_3,layer_datosestacion136_4]);
+            resetLabels([layer_UNIDADES_GEO_4,layer_datosestacion136_6]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_UNIDADES_GEO_3,layer_datosestacion136_4]);
+            resetLabels([layer_UNIDADES_GEO_4,layer_datosestacion136_6]);
         });
         </script>        
     </body>
